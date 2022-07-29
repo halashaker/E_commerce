@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->bigInteger('phone')->nullable();
-            $table->bigInteger('location_id')->unsigned();
+            $table->bigInteger('location_id')->unsigned()->nullable();;
             $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
