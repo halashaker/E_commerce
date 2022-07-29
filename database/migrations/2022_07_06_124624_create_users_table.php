@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('image')->nullable();
             $table->bigInteger('phone')->nullable();
-            $table->bigInteger('location_id')->unsigned();
+            $table->bigInteger('location_id')->unsigned()->nullable();;
             $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
