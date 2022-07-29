@@ -17,15 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-<<<<<<< HEAD
-
-//ProductController api's
+//hala
 Route::get('/products', 'ProductController@index');
 Route::get('/products/{id}', 'ProductController@show');
 Route::post('/products/store', 'ProductController@store');
 Route::post('/products/update/{id}', 'ProductController@update');
 Route::post('/products/delete/{id}', 'ProductController@delete');
-=======
+Route::get('/order/in_user/{id}','ProductController@show_by_user');
+
+//tasneem
 Route::get('/categories','CategoryController@index');
 Route::get('/categories/{id}','CategoryController@show');
 Route::post('/categories/store','CategoryController@store');
@@ -46,4 +46,4 @@ Route::post('/product/vote/','ProductController@vote');
 
 
 
->>>>>>> 2e0593974729e0403b6cdee9d2389a14b7a52f81
+

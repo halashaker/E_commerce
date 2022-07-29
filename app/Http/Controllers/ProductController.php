@@ -108,6 +108,7 @@ class ProductController extends Controller
 
         }
 
+
     public function show_by_category($id)
     {
      $products=Product::select('id','name','image')->where('category_id',$id)->get();
@@ -123,7 +124,7 @@ class ProductController extends Controller
        $response['data']=$products;
        $response['message']="error not found";
        $response['status_code']=404;
-       return response()->json($products,404);
+       return response()->json($response,404);
      }
     }
     public function vote(Request $request)
