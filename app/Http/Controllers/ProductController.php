@@ -41,10 +41,10 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->total_q = $request->total_q;
          //////////////////////////////////////
-            $request->image;
-            $image_name=rand().".".$request->image->getClientOriginalExtension();
-            $product->image=$image_name;
-            $request->image->move('upload',$image_name);
+            // $request->image;
+            // $image_name=rand().".".$request->image->getClientOriginalExtension();
+            // $product->image=$image_name;
+            // $request->image->move('upload',$image_name);
         //    ////////////////////////////////////
         $product->color = $request->color;
         $product->size = $request->size;

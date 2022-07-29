@@ -23,7 +23,7 @@ Route::get('/products/{id}', 'ProductController@show');
 Route::post('/products/store', 'ProductController@store');
 Route::post('/products/update/{id}', 'ProductController@update');
 Route::post('/products/delete/{id}', 'ProductController@delete');
-Route::get('/order/in_user/{id}','ProductController@show_by_user');
+Route::get('/order/in_user/{id}','OrderController@show_by_user');
 
 //tasneem
 Route::get('/categories','CategoryController@index');
