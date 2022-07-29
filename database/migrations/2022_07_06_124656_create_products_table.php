@@ -19,8 +19,8 @@ class CreateProductsTable extends Migration
             $table->double('sell_price')->nullable();
             $table->integer('total_q')->nullable();
             $table->text('description')->nullable();
-            $table->string('color')->nullable();
-            $table->string('size')->nullable();
+            $table->enum('color',['BLACK','WHITE','RED','BLUE','YALLOW','GREEN','ORANGE','PURPLE','PINK'])->default('WHITE');
+            $table->enum('size',['S','M','L','XL','XXL','34','35','36','37','38','39','40','41','42','43','44','45'])->default('S');
             $table->string('image')->nullable();
             $table->bigInteger('brand_id')->unsigned();
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');

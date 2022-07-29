@@ -1,4 +1,4 @@
-<?php 
+<?php
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
     use App\User;
@@ -30,15 +30,15 @@
 
                 //login
                    //variable
-                $credentials = $request->only(['email', 'password']); 
+                $credentials = $request->only(['email', 'password']);
 
                 $token = Auth::guard('user-api')->attempt($credentials);//jwt generate token
-                
+
 
                 if (!$token){
                     return $this->returnError('E001', 'بيانات الدخول غير صحيحة');
                 }
-                
+
                 $user = Auth::guard('user-api')->user();
                 $user->api_token = $token;
                  //return token
@@ -47,7 +47,7 @@
             } catch (\Exception $ex) {
                 return $this->returnError($ex->getCode(), $ex->getMessage());
             }
-     
+
         }
 
 
@@ -57,7 +57,7 @@
              $token = $request -> header('auth-token');
             if($token){
                 try {
-                    
+
                     JWTAuth::setToken($token)->invalidate(); //logout
                 }catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e){
                     return  $this -> returnError('','some thing went wrongs');
@@ -67,7 +67,7 @@
                 $this -> returnError('','some thing went wrongs');
             }
 
-        } 
+        }
 
 
         public function store(Request $request)
@@ -86,7 +86,7 @@
                 return response()->json($response,200) ;
 
 
-               
+
         }
 
 
@@ -108,32 +108,32 @@
                     $user->name = $request->name;
                 }
                 if (isset($request->email)) {
-                    $user->email = $request->email;     
+                    $user->email = $request->email;
                 }
                 if (isset($request->password)) {
-                    $user->password =bcrypt("$request->password");     
+                    $user->password =bcrypt("$request->password");
                 }
                 if (isset($request->image)) {
                   $image_name = rand() . "." . $request->image->
                     getClientOriginalExtension();
-                  $user->image =  $image_name; 
-                  $request->image->move('image', $image_name);     
+                  $user->image =  $image_name;
+                  $request->image->move('image', $image_name);
                 }
                 if (isset($request->phone)) {
-                    $user->phone = $request->phone;     
+                    $user->phone = $request->phone;
                 }
                 if (isset($request->location_id)) {
-                   $user->location_id = $request->location_id; 
+                   $user->location_id = $request->location_id;
                 }
-               
+
 
                  $user->save();
                 $response['data'] = $user;
                 $response['message'] = "update success";
                 $response['status_code'] = 200;
                 return response()->json($response,200) ;
-                
-     
+
+
             }
                 $response['data'] = '';
                 $response['message'] = "error";
