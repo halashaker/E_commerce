@@ -4,8 +4,10 @@
     use App\User;
     use App\Traits\GeneralTrait;
     use Tymon\JWTAuth\Facades\JWTAuth;
-    use Validator;
-    use Auth;
+    use Illuminate\Support\Facades\Auth;
+    use Illuminate\Support\Facades\Validator;
+   // use Validator;
+    //use Auth;
 
     class UserController extends Controller
     {

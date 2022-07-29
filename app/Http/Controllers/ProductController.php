@@ -5,7 +5,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\EmployeeExport;
-
+use Illuminate\Support\Facades\DB;
 //use Excel;
 class ProductController extends Controller
 {
