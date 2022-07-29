@@ -37,6 +37,7 @@ class OrderController extends Controller
        $response['data']= '';
        $response['message']="error not found";
        $response['status_code']=404;
-       return response()->json($products,404);
+       return response()->json($response,404);
      }
+}
 }
