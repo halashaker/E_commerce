@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Product;
+use App\Stock;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\EmployeeExport;
@@ -36,6 +37,7 @@ class ProductController extends Controller
 
     public function store(Request $request){
         $product = new Product;
+        //$stock =Stock::select('id')->where('product_id',$request->id)->get()->last();
         $product->name = $request->name;
         $product->sell_price = $request->sell_price;
         $product->description = $request->description;

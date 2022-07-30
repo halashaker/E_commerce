@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 class StockSeeder extends Seeder
 {
     /**
@@ -25,7 +25,16 @@ class StockSeeder extends Seeder
             'sell_price'=>'25000',
             'date'=>'2022-07-06',
             'product_id'=>'2',
-        ]
+        ],
+
+        [
+            'quantity'=> '30',
+            'net_price'=>'15000',
+            'sell_price'=>'30000',
+            'date'=>'2022-07-06',
+            'product_id'=>'2',
+        ],
+
         ]);
 
     }

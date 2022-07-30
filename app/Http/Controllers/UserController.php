@@ -80,6 +80,12 @@
                $user->password = bcrypt("$request->password");
                $user->phone = $request->phone;
                $user->location_id = $request->location_id;
+               /////////////////////
+               $request->image;
+               $image_name=rand().".".$request->image->getClientOriginalExtension();
+               $user->image=$image_name;
+               $request->image->move('upload',$image_name);
+               ////////////////////
                $user->save();
 
                 $response['data'] = $user;

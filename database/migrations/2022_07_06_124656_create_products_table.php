@@ -16,8 +16,8 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->double('sell_price')->nullable();
-            $table->integer('total_q')->nullable();
+            $table->double('sell_price')->default('0');
+            $table->integer('total_q')->default('0');
             $table->text('description')->nullable();
             $table->enum('color',['BLACK','WHITE','RED','BLUE','YALLOW','GREEN','ORANGE','PURPLE','PINK'])->default('WHITE');
             $table->enum('size',['S','M','L','XL','XXL','34','35','36','37','38','39','40','41','42','43','44','45'])->default('S');
